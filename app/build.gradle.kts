@@ -198,4 +198,6 @@ dependencies {
     implementation(Libs2.threeTenAndroid)
     implementation(Libs2.timeAgo)
     testImplementation(Libs2.junit)
+
+    testImplementation("io.mockk:mockk:1.10.5")
 }

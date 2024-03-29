@@ -33,4 +33,6 @@ android {
 
 dependencies {
     implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
+    testImplementation("junit:junit:4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 }
