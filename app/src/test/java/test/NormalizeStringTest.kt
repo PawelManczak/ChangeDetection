@@ -14,6 +14,30 @@ class NormalizeStringTest {
         Assert.assertEquals(expected, output)
     }
 
+    @Test
+    fun testNormalizeStringWithEmptyString() {
+        val input = ""
+        val expected = ""
+        val output = input.normalizeString()
+        Assert.assertEquals(expected, output)
+    }
+
+    @Test
+    fun testNormalizeStringWithWhitespaceOnly() {
+        val input = "     "
+        val expected = "     "
+        val output = input.normalizeString()
+        Assert.assertEquals(expected, output)
+    }
+
+    @Test
+    fun testNormalizeStringWithAlreadyNormalizedString() {
+        val input = "hello world"
+        val expected = "hello world"
+        val output = input.normalizeString()
+        Assert.assertEquals(expected, output)
+    }
+
     // This test will fail
 //    @Test
 //    fun testNormalizeStringWithSpecialCharacters() {
