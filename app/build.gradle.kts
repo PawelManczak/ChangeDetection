@@ -17,6 +17,11 @@ androidExtensions {
 android {
     compileSdkVersion(33)
 
+    packagingOptions {
+        resources.excludes += "META-INF/LICENSE.md"
+        resources.excludes += "META-INF/LICENSE-notice.md"
+    }
+
     defaultConfig {
         applicationId = "com.bernaferrari.changedetection"
         minSdkVersion(21)
