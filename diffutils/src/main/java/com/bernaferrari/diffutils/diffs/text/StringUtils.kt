@@ -29,7 +29,7 @@ internal object StringUtils {
      * @param str
      * @return
      */
-    private fun htmlEntites(str: String): String {
+    internal fun htmlEntites(str: String): String {
         return str.replace("<", "&lt;").replace(">", "&gt;")
     }
 
