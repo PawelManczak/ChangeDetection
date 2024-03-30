@@ -29,6 +29,8 @@ android {
         versionCode = 34
         versionName = "2.31"
         multiDexEnabled = true
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -98,6 +100,7 @@ dependencies {
     implementation(Libs2.Epoxy.paging)
     implementation("junit:junit:4.12")
     implementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
     kapt(Libs2.Epoxy.processor)
 
     // MvRx
@@ -199,4 +202,8 @@ dependencies {
     testImplementation(Libs2.junit)
 
     testImplementation("io.mockk:mockk:1.10.5")
+
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
 }
