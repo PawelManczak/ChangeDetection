@@ -37,4 +37,19 @@ class AddWebsiteTest {
         Espresso.onView(ViewMatchers.withText(title))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
+
+    @Test
+    fun addWebsiteTestWithEmptyUrl() {
+        val title = "New Tracking"
+        Espresso.onView(ViewMatchers.withId(R.id.floating_add_button)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.title)).perform(ViewActions.typeText(title))
+        Espresso.closeSoftKeyboard()
+
+        sleep(500)
+        Espresso.onView(ViewMatchers.withId(R.id.saveButton)).perform(ViewActions.click())
+
+        Espresso.onView(ViewMatchers.withText("Invalid url"))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
+
 }
