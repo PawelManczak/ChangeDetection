@@ -39,12 +39,12 @@ class NormalizeStringTest {
     }
 
     // This test will fail
-//    @Test
-//    fun testNormalizeStringWithSpecialCharacters() {
-//        val input = "Zażółć gęślą jaźń"
-//        val expected = "zazolc gesla jazn"
-//        val output = input.normalizeString()
-//        Assert.assertEquals(expected, output)
-//    }
+    @Test
+    fun testNormalizeStringWithSpecialCharacters() {
+        val input = "Zażółć gęślą jaźń"
+        val expected = "zazolc gesla jazn"
+        val output = input.normalizeString()
+        Assert.assertEquals(expected, output)
+    }
 
 }
