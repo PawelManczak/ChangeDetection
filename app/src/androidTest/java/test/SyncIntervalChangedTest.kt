@@ -27,10 +27,12 @@ class SyncIntervalChangedTest {
 
     @Test
     fun SyncIntervalChangedTest() {
-        Espresso.onView( ViewMatchers.withId(R.id.settingsFragment)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.settingsFragment)).perform(ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.seekBar)).perform(setProgress(8))
-        Espresso.onView(ViewMatchers.withText("24 hours")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withText("24 hours"))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
+
     @Test
     fun multipleIntervalChangeTest() {
         Espresso.onView(ViewMatchers.withId(R.id.settingsFragment)).perform(ViewActions.click())
@@ -38,7 +40,8 @@ class SyncIntervalChangedTest {
             Espresso.onView(ViewMatchers.withId(R.id.seekBar)).perform(setProgress(i * 2))
             Thread.sleep(100)
         }
-        Espresso.onView(ViewMatchers.withText("24 hours")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        Espresso.onView(ViewMatchers.withText("24 hours"))
+            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
 
