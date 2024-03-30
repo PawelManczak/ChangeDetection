@@ -9,47 +9,46 @@ import androidx.test.filters.LargeTest
 import androidx.test.runner.AndroidJUnit4
 import com.bernaferrari.changedetection.MainActivity
 import com.bernaferrari.changedetection.R
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.lang.Thread.sleep
 
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class AddWebsiteTest {
+class RenameWebsiteTest {
+
+    val url = "https://bernaferrari.com"
+    val title = "New Tracking"
+    val newTitle = "New Title"
 
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
-    @Test
-    fun addWebsiteTest() {
-        val url = "https://bernaferrari.com"
-        val title = "New Tracking"
+    @Before
+    fun setup() {
         Espresso.onView(ViewMatchers.withId(R.id.floating_add_button)).perform(ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.url)).perform(ViewActions.typeText(url))
         Espresso.onView(ViewMatchers.withId(R.id.title)).perform(ViewActions.typeText(title))
         Espresso.closeSoftKeyboard()
 
-        sleep(500)
+        Thread.sleep(500)
         Espresso.onView(ViewMatchers.withId(R.id.saveButton)).perform(ViewActions.click())
-
-        Espresso.onView(ViewMatchers.withText(title))
-            .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     @Test
-    fun addWebsiteWithEmptyUrlTest() {
-        val title = "New Tracking"
-        Espresso.onView(ViewMatchers.withId(R.id.floating_add_button)).perform(ViewActions.click())
-        Espresso.onView(ViewMatchers.withId(R.id.title)).perform(ViewActions.typeText(title))
+    fun renameWebsiteTest() {
+        Espresso.onView(ViewMatchers.withText(title)).perform(ViewActions.longClick())
+        Espresso.onView(ViewMatchers.withText("Edit")).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.title)).perform(ViewActions.clearText())
+        Espresso.onView(ViewMatchers.withId(R.id.title)).perform(ViewActions.typeText(newTitle))
         Espresso.closeSoftKeyboard()
 
-        sleep(500)
+        Thread.sleep(500)
         Espresso.onView(ViewMatchers.withId(R.id.saveButton)).perform(ViewActions.click())
 
-        Espresso.onView(ViewMatchers.withText("Invalid url"))
+        Espresso.onView(ViewMatchers.withText(newTitle))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
-
 }
