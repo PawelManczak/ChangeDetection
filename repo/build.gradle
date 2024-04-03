@@ -28,6 +28,8 @@ dependencies {
 
     // Dagger
     implementation Libs2.Dagger.dagger
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     kapt Libs2.Dagger.compiler
 
     // Room
